@@ -1,7 +1,7 @@
 import random
 
+from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
-from django.http import HttpResponseNotFound,  HttpResponseServerError
 
 import tours.data as dt
 
