@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <main class="container mt-3">
+    <!-- HERO -->
+    <section class="jumbotron text-center mt-4" style="background: url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&h=700'); background-position: center center; background-color: #686868; background-blend-mode: multiply;">
+      <h1 class="display-4" style="color: #CCCCCC;">{{ h1 }}</h1>
+      <p class="lead" style="color: #CCCCCC;">{{ p1 }}</p>
+      <p class="mt-5 w-50 mx-auto" style="color: #CCCCCC;">{{ p2 }}</p>
+    </section>
+    <!-- CARDS -->
+    <div class="row mt-5">
+      {% for id, tour in data.items %}
+      <div class="col-4">
+        <div class="card mb-4">
+          <div class="embed-responsive embed-responsive-16by9">
+             <img class="card-img-top embed-responsive-item" src="{{ tour.card_url }}" alt="" />
+          </div>          
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ tour.country }}: {{ tour.title }}</h2>
+            <p class="card-text">{{ tour.description }}</p>
+            <p class="card-text"><b>{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price_view }} P&emsp; {{tour.stars}}★</b></p>
+            <a href="/tour/{{ id }}" class="btn btn-sm btn-primary">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}
