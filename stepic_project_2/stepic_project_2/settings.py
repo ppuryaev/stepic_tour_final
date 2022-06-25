@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '185.182.111.60', 'pmpuryaev.space', 'www.pmpuryaev.space']
 
 
-# 12345fffffffffffff
+# 12345fffffffffffff new test 2
 # Application definition
 
 INSTALLED_APPS = [
