@@ -58,8 +58,6 @@ def tour_view(request, id):
     context['dep_name'] = dep_list.get(context.get('departure'))
     return render(request, "tour.html", context=context)
 
-def pmpuryaev_view(request):
-    return render(request, "pmpuryaev.html")
 
 def custom_handler404(request, exception):
     # Call when Http404 raised

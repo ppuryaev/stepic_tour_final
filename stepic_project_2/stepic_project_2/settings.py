@@ -24,13 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_7_m*zp9vfgm2a@$07uyvg3q$z)f=m&)vp)7yf@v2%)9tdbxt4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '185.182.111.60', 'pmpuryaev.space', 'www.pmpuryaev.space']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-
-# 12345fffffffffffff new test 2 -----
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -121,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Добавляем другие директории
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
