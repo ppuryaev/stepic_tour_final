@@ -1,4 +1,4 @@
-# Stepik project
+# Stepik project Week 2
 
 Training project for [a course on the Stepik](<https://stepik.org/course/63298>).
 
