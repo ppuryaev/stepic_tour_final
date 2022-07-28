@@ -10,17 +10,17 @@
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
-      {% for id, tour in data.items %}
+      {% for tour_id, tour in data.items %}
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
              <img class="card-img-top embed-responsive-item" src="{{ tour.card_url }}" alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">{{ tour.country }}: {{ tour.title }}</h2>
-            <p class="card-text">{{ tour.description }}</p>
+            <h2 class="h5 card-title" style="height: 45px;">{{ tour.country }}: {{ tour.title }}</h2>
+            <p class="card-text" style="height: 250px; overflow: auto;">{{ tour.description }}</p>
             <p class="card-text"><b>{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price_view }} P&emsp; {{tour.stars}}★</b></p>
-            <a href="/tour/{{ id }}" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ tour_id }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>

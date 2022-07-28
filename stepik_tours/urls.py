@@ -1,4 +1,4 @@
-"""stepic_project_2 URL Configuration
+"""stepik_tours URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -18,10 +18,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from tours.views import custom_handler404, custom_handler500
-from tours.views import departure_view
-from tours.views import main_view
-from tours.views import tour_view
+from tour.views import custom_handler404, custom_handler500
+from tour.views import departure_view
+from tour.views import main_view
+from tour.views import tour_view
 
 
 handler404 = custom_handler404
@@ -31,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view, name='main'),
     path('departure/<str:departure>/', departure_view, name='departure_view'),
-    path('tour/<int:id>/', tour_view, name='tour_view'),
+    path('tour/<int:tour_id>/', tour_view, name='tour_view'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

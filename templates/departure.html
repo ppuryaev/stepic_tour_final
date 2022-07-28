@@ -6,15 +6,15 @@
     <p class="mb-4"><b>Найдено {{ cnt_tours }} туров</b>, от {{ min_price }} до {{ max_price }} и от {{ min_date }} ночей до {{ max_date }} ночей</p>
     <!-- CARDS -->
     <div class="row mt-5">
-      {% for id, card in data.items %}
+      {% for card_id, card in data.items %}
       <div class="col-4">
         <div class="card mb-4">
-          <img href="/tour/{{ id }}" src="{{ card.card_url }}" class="card-img-top img-fluid" alt="">
+          <img href="/tour/{{ card_id }}" src="{{ card.card_url }}" class="card-img-top img-fluid" alt="">
           <div class="card-body">
-            <h2 class="h5 card-title">{{ card.country }}: {{ card.title }}</h2>
-            <p class="card-text">{{ card.description }}</p>
+            <h2 class="h5 card-title" style="height: 45px;">{{ card.country }}: {{ card.title }}</h2>
+            <p class="card-text" style="height: 250px; overflow: auto;">{{ card.description }}</p>
             <p class="card-text"><b>{{ card.date }}, {{ card.nights }} ночей, {{ card.price_view }} P</b></p>
-            <a href="/tour/{{ id }}" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ card_id }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>

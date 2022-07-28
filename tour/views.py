@@ -3,7 +3,7 @@ import random
 from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
 
-import tours.data as dt
+import tour.data as dt
 
 
 # Create your views here.
@@ -11,10 +11,10 @@ def main_view(request):
     tours_sample = dict(random.sample(dt.tours.items(), 6))
     context = dict()
     correct_data = {}
-    for id, data in tours_sample.items():
+    for tour_id, data in tours_sample.items():
         data['card_url'] = data['picture'].replace('&w=800&q=60', '&w=300&h=200')
         data['price_view'] = '{:,}'.format(data['price']).replace(',', ' ')
-        correct_data[id] = data
+        correct_data[tour_id] = data
     context['h1'] = "Всякие туры"
     context['p1'] = dt.subtitle
     context['p2'] = dt.description
@@ -32,19 +32,19 @@ def departure_view(request, departure):
     context['min_date'] = min([filter_tours[x]['nights'] for x in filter_tours])
     context['max_date'] = max([filter_tours[x]['nights'] for x in filter_tours])
     correct_data = {}
-    for id, data in filter_tours.items():
+    for tour_id, data in filter_tours.items():
         data['card_url'] = data['picture'].replace('&w=800&q=60', '&w=300&h=200')
         data['price_view'] = '{:,}'.format(data['price']).replace(',', ' ')
-        correct_data[id] = data
+        correct_data[tour_id] = data
     context['data'] = correct_data
     return render(request, "departure.html", context=context)
 
 
-def tour_view(request, id):
-    tour = dt.tours.get(id, False)
-    st = [x for x in range(int(tour['stars']))]
+def tour_view(request, tour_id):
+    tour = dt.tours.get(tour_id, False)
     if tour is False:
         return HttpResponseNotFound("Нет такого тура! Выбери другой.")
+    st = [x for x in range(int(tour['stars']))]
     context = tour
     context['rangeSt'] = st
     context['price_view'] = '{:,}'.format(context['price']).replace(',', ' ')
