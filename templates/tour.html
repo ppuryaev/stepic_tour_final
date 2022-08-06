@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block tour %}
+{% block container %}
   <main class="container">
     <section class="mt-3 pb-5">
       <h1 class="display-3 mt-4">{{ title }} {% for star in rangeSt %}★{% endfor %}</h1>
@@ -8,7 +8,7 @@
       <p class="lead">{{ country }} {{ dep_name }} {{ nights }} ночей</p>
       <img src="{{ picture }}" class="img-responsive" width="100%" alt="">
       <p class="my-4 w-100">{{ description }}</p>
-      <a href="#" class="btn btn-success btn-lg">Купить тур за <b>{{ price_view }}</b></a>
+      <a href="#" class="btn btn-success btn-lg">Купить тур за <b>{{ price|floatformat:"g"}}</b></a>
     </section>
   </main>
 {% endblock %}
